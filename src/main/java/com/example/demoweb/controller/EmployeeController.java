@@ -20,6 +20,11 @@ public class EmployeeController {
         return repository.findAll();
     }
 
+    @PostMapping("/employees")
+    Employee newEmployee(@RequestBody Employee newEmployee) {
+        return repository.save(newEmployee);
+    }
+
     @GetMapping("/employees/{id}")
     Employee one(@PathVariable Long id) {
         return repository.findById(id)
